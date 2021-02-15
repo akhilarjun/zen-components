@@ -1,0 +1,25 @@
+{
+  "name": "@akhilarjun/zen-components",
+  "version": "0.0.1",
+  "description": "A small collection of utility components built in pure Js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akhilarjun/zen-components.git"
+  },
+  "keywords": [
+    "zen",
+    "components",
+    "web",
+    "components"
+  ],
+  "author": "Akhil Arjun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akhilarjun/zen-components/issues"
+  },
+  "homepage": "https://github.com/akhilarjun/zen-components#readme"
+}
