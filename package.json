@@ -1,5 +1,5 @@
 {
-  "name": "@akhilarjun/zen-components",
+  "name": "zen-components",
   "version": "0.0.1",
   "description": "A small collection of utility components built in pure Js",
   "main": "index.js",
