@@ -1,4 +1,7 @@
 const renderEvent = new Event("render-complete");
+const initializedEvent = new Event("init-complete");
+const removedEvent = new Event("remove-complete");
+const attributeChangedEvent = new Event("attribute-change-complete");
 
 class zenUtilityFor extends HTMLElement {
   constructor() {
@@ -64,11 +67,25 @@ class zenUtilityFor extends HTMLElement {
             for (let individualFormatter of formatters) {
               const strippedFormatter = individualFormatter.split(" | ")[1];
               switch (strippedFormatter) {
-                case "time":
+                case "datetime":
                   value = new Date(value).toLocaleString(undefined, {
                     month: "long",
                     year: "numeric",
                     day: "numeric",
+                    hour: "numeric",
+                    minute: "numeric",
+                    second: "numeric",
+                  });
+                  break;
+                case "date":
+                  value = new Date(value).toLocaleString(undefined, {
+                    month: "long",
+                    year: "numeric",
+                    day: "numeric",
+                  });
+                  break;
+                case "time":
+                  value = new Date(value).toLocaleString(undefined, {
                     hour: "numeric",
                     minute: "numeric",
                     second: "numeric",
@@ -101,6 +118,7 @@ class zenUtilityFor extends HTMLElement {
 
   attributeChangedCallback(prop, oldval, newval) {
     if (prop === "list" && newval) {
+      this.dispatchEvent(attributeChangedEvent);
       this.innerHTML = this.render(this.originalHTML);
       this.dispatchEvent(renderEvent);
     }
@@ -112,6 +130,11 @@ class zenUtilityFor extends HTMLElement {
       this.innerHTML = this.render(this.originalHTML);
       this.dispatchEvent(renderEvent);
     }
+    this.dispatchEvent(initializedEvent);
+  }
+
+  disconnectedCallback() {
+    this.dispatchEvent(removedEvent);
   }
 }
 
