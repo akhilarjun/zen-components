@@ -49,7 +49,6 @@ class zenUtilityFor extends HTMLElement {
       keyTokens &&
         keyTokens.forEach((token) => {
           let formatters = token.match(/(\s\|\s[a-z]+)/gi);
-          console.log(formatters);
           let key;
           if (formatters) {
             key = token.replaceAll(formatters.join(""), "");

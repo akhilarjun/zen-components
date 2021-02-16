@@ -18,9 +18,22 @@ const zenFor = {
   },
 };
 
+zenFor.elem.addEventListener("init-complete", () => {
+  console.log("Element Initialised");
+});
+
+zenFor.elem.addEventListener("remove-complete", () => {
+  console.log("Element Removed");
+});
+
+zenFor.elem.addEventListener("attribute-change-complete", () => {
+  console.log("Attribute Changed!");
+});
+
 zenFor.elem.setAttribute("list", "employees");
 
 zenFor.elem.addEventListener("render-complete", () => {
+  console.log("Render Complete!");
   zenFor.elem.classList.add("changed");
   setTimeout(() => {
     zenFor.elem.classList.remove("changed");
@@ -54,4 +67,8 @@ function addEmployee() {
   zenFor.elem.renderContent().then(() => {
     window.scrollTo(0, document.querySelector(".wrapper").scrollHeight);
   });
+}
+
+function removeElem() {
+  zenFor.elem.remove();
 }
