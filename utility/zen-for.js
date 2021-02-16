@@ -46,9 +46,10 @@ class zenUtilityFor extends HTMLElement {
       keyTokens &&
         keyTokens.forEach((token) => {
           let formatters = token.match(/(\s\|\s[a-z]+)/gi);
+          console.log(formatters);
           let key;
           if (formatters) {
-            key = token.replaceAll(formatters, "");
+            key = token.replaceAll(formatters.join(""), "");
           } else {
             key = token;
           }
@@ -60,29 +61,31 @@ class zenUtilityFor extends HTMLElement {
               obj
             );
           } else if (formatters) {
-            const strippedFormatter = formatters[0].split(" | ")[1];
-            switch (strippedFormatter) {
-              case "time":
-                value = new Date(value).toLocaleString(undefined, {
-                  month: "long",
-                  year: "numeric",
-                  day: "numeric",
-                  hour: "numeric",
-                  minute: "numeric",
-                  second: "numeric",
-                });
-                break;
-              case "escape":
-                value = this.escapeHTML(value);
-                break;
-              case "upper":
-                value = value.toUpperCase();
-                break;
-              case "lower":
-                value = value.toLowerCase();
-                break;
-              default:
-                break;
+            for (let individualFormatter of formatters) {
+              const strippedFormatter = individualFormatter.split(" | ")[1];
+              switch (strippedFormatter) {
+                case "time":
+                  value = new Date(value).toLocaleString(undefined, {
+                    month: "long",
+                    year: "numeric",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "numeric",
+                    second: "numeric",
+                  });
+                  break;
+                case "escape":
+                  value = this.escapeHTML(value);
+                  break;
+                case "upper":
+                  value = value.toUpperCase();
+                  break;
+                case "lower":
+                  value = value.toLowerCase();
+                  break;
+                default:
+                  break;
+              }
             }
           }
           parsedHtml = parsedHtml.replaceAll(token, value);
