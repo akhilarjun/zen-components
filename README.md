@@ -2,6 +2,24 @@
 
 A small collection of utility components built in pure Js
 
+## Instalation
+
+### Using Node
+
+```unix
+npm i zen-components
+```
+
+### Using CDN
+
+```html
+<script src="https://unpkg.com/zen-components@0.0.4/utility/zen-for.js"></script>
+
+<!-- or use min file-->
+
+<script src="https://cdn.jsdelivr.net/gh/akhilarjun/zen-components@0.0.4/utility/zen-for.min.js"></script>
+```
+
 ## List of components
 
 ## zen-for
