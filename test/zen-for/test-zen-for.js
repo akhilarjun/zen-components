@@ -70,5 +70,7 @@ function addEmployee() {
 }
 
 function removeElem() {
-  zenFor.elem.remove();
+  zenFor.elem.destroy().then(() => {
+    console.log("Element Destroyed!");
+  });
 }

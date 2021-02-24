@@ -21,6 +21,17 @@ class zenUtilityFor extends HTMLElement {
         }
       });
     };
+
+    this.destroy = () => {
+      return new Promise((resolve, reject) => {
+        try {
+          this.remove();
+          resolve("zen-for Destroyed");
+        } catch (e) {
+          reject(e);
+        }
+      });
+    };
   }
 
   get list() {

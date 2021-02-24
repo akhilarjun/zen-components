@@ -13,11 +13,14 @@ npm i zen-components
 ### Using CDN
 
 ```html
-<script src="https://unpkg.com/zen-components@0.0.4/utility/zen-for.js"></script>
+<!-- use unpkg CDN -->
+<script src="https://unpkg.com/zen-components@0.0.5/utility/zen-for.js"></script>
 
-<!-- or use min file-->
+<!-- or jsdelivr -->
+<script src="https://cdn.jsdelivr.net/gh/akhilarjun/zen-components@0.0.5/utility/zen-for.js"></script>
 
-<script src="https://cdn.jsdelivr.net/gh/akhilarjun/zen-components@0.0.4/utility/zen-for.min.js"></script>
+<!-- or use min file -->
+<script src="https://cdn.jsdelivr.net/gh/akhilarjun/zen-components@0.0.5/utility/zen-for.min.js"></script>
 ```
 
 ## List of components
@@ -96,6 +99,8 @@ There are 4 lifecycle hooks available for `zen-for`
 - **attribute-change-complete** Triggered everytime an attribute change happens
 - **remove-complete** Triggered when `zen-for` is removed from DOM. eg: `document.querySelector('zen-for').remove();`
 
+### Manual Render
+
 You can also manually trigger the render process of `zen-for` by getting an instance of the element and calling `renderContent()` method
 
 #### Example
@@ -103,8 +108,21 @@ You can also manually trigger the render process of `zen-for` by getting an inst
 ```js
 const zenForElem = document.querySelector("zen-for");
 zenForElem.renderContent().then(() => {
-    console.log('Manual Trigger Done!)
+  console.log("Manual Trigger Done!");
 });
 ```
 
-> The `renderContent()` mehod returns a promise.
+### Destroy
+
+`zen-for` component exposes a destroy method that can be used to destroy the instance
+
+#### Example
+
+```js
+const zenForElem = document.querySelector("zen-for");
+zenForElem.destory().then(() => {
+  console.log("Component Destroyed");
+});
+```
+
+> Both `renderContent()` and `destroy()` mehod returns a promise.
