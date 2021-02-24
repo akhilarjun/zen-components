@@ -1,6 +1,6 @@
 {
   "name": "zen-components",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A small collection of utility components built in pure Js",
   "main": "index.js",
   "scripts": {
