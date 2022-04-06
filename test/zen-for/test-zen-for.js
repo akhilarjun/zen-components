@@ -1,13 +1,13 @@
-zen.employees = [
+zen.mylist = [
   {
-    name: "Akhil",
+    name: "Akhil Arjun ",
     lastUpdated: new Date().getTime(),
   },
 ];
 
 zen.rickAndMorty = [
   {
-    name: "Rick",
+    name: "Rick Sanchez",
     lastUpdated: new Date().getTime(),
   },
 ];
@@ -30,7 +30,7 @@ zenFor.elem.addEventListener("attribute-change-complete", () => {
   console.log("Attribute Changed!");
 });
 
-zenFor.elem.setAttribute("list", "employees");
+zenFor.elem.setAttribute("list", "mylist");
 
 zenFor.elem.addEventListener("render-complete", () => {
   console.log("Render Complete!");
